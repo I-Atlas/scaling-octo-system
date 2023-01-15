@@ -31,6 +31,7 @@ export const Navigation: React.FC = () => {
           px={12}
           justifyContent="space-between"
           alignItems="center"
+          gap="16px"
           flexDirection={{ base: "column", md: "row" }}
         >
           <NextLink href="/" title={"Logo"}>
@@ -38,7 +39,11 @@ export const Navigation: React.FC = () => {
           </NextLink>
 
           <NextLink href="tel:+78123809380">
-            <Flex direction="column" alignItems="flex-end">
+            <Flex
+              direction="column"
+              gap="8px"
+              alignItems={{ base: "center", md: "flex-end" }}
+            >
               <Flex direction="row" alignItems="center">
                 <IconPhoneCall size={22} />
                 <Heading
