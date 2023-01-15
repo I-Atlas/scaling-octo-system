@@ -7,7 +7,7 @@ import {
   Flex,
   SimpleGrid,
 } from "@chakra-ui/react";
-import { Heading } from "components/base";
+import { Heading, Text } from "components/base";
 import { ChakraNextImage } from "components/base/chakra-next-image";
 import { StaticImageData } from "next/image";
 import { ComponentWithChildren } from "types/types";
@@ -17,7 +17,8 @@ export interface IHero {
   title: ReactNode;
   description: ReactNode;
   buttonText: string;
-  buttonLink: string;
+  buttonLink?: string;
+  buttonClick?: () => void;
   image?: StaticImageData | string;
 }
 
@@ -26,6 +27,7 @@ export const Hero: ComponentWithChildren<IHero> = ({
   description,
   buttonText,
   buttonLink,
+  buttonClick,
   image,
   children,
 }) => {
@@ -52,25 +54,25 @@ export const Hero: ComponentWithChildren<IHero> = ({
             as="h2"
             fontSize={{ base: "32px", md: "48px" }}
             fontWeight="bold"
-            size="display.sm"
             textAlign={{ base: "start", md: "left" }}
           >
             {title}
           </Heading>
-          <Heading
-            as="h3"
-            size="subtitle.md"
+          <Text
+            as="p"
             opacity={0.8}
+            fontSize={{ base: "18px", md: "20px" }}
             textAlign={{ base: "start", md: "left" }}
           >
             {description}
-          </Heading>
+          </Text>
           <HeroButton
             mt="24px"
             title={buttonText}
             href={buttonLink}
+            onClick={buttonClick}
             color="white"
-            bg="red"
+            colorScheme="red"
           />
         </Flex>
         {image && (

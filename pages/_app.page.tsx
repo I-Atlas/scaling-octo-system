@@ -1,3 +1,4 @@
+import { YMaps } from "@pbe/react-yandex-maps";
 import { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -9,9 +10,11 @@ const Layout = dynamic(
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   return (
-    <Layout>
-      <Component {...pageProps} key={router.route} />
-    </Layout>
+    <YMaps>
+      <Layout>
+        <Component {...pageProps} key={router.route} />
+      </Layout>
+    </YMaps>
   );
 };
 

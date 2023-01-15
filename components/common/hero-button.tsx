@@ -1,9 +1,14 @@
 import { Icon } from "@chakra-ui/react";
-import { ButtonProps, LinkButton, LinkButtonProps } from "components/base";
+import {
+  Button,
+  ButtonProps,
+  LinkButton,
+  LinkButtonProps,
+} from "components/base";
 
 interface GeneralCtaProps extends Omit<LinkButtonProps, "href"> {
   title: string;
-  href: string;
+  href?: string;
   size?: ButtonProps["size"];
 }
 
@@ -12,22 +17,38 @@ export const HeroButton: React.FC<GeneralCtaProps> = ({
   href,
   ...props
 }) => {
+  if (href) {
+    return (
+      <LinkButton
+        px={"48px"}
+        py={"24px"}
+        fontSize={{ base: "16px", md: "18px" }}
+        width="full"
+        fontWeight="bold"
+        textAlign="center"
+        borderRadius="md"
+        href={href}
+        isExternal={href.startsWith("http")}
+        _hover={{ opacity: 0.8 }}
+        noIcon
+        {...props}
+      >
+        {title}
+      </LinkButton>
+    );
+  }
   return (
-    <LinkButton
+    <Button
       px={"48px"}
       py={"24px"}
       fontSize={{ base: "16px", md: "18px" }}
-      width="full"
       fontWeight="bold"
       textAlign="center"
       borderRadius="md"
-      href={href}
-      isExternal={href.startsWith("http")}
       _hover={{ opacity: 0.8 }}
-      noIcon
       {...props}
     >
       {title}
-    </LinkButton>
+    </Button>
   );
 };

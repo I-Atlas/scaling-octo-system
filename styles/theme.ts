@@ -14,13 +14,14 @@ const chakraTheme: Theme = extendTheme({
     useSystemColorMode: true,
   } as Theme["config"],
   fonts: {
-    heading: `"Inter", -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`,
-    body: `"Inter", -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`,
-    mono: `'IBM Plex Mono', monospace`,
+    heading: "Space Grotesk, sans-serif",
+    body: "Space Grotesk, sans-serif",
+    mono: "Space Grotesk, sans-serif",
   },
   styles: {
     global: <T extends StyleFunctionProps>(props: T) => ({
       "html, body": {
+        fontFamily: "Space Grotesk, sans-serif",
         padding: 0,
         margin: 0,
         fontFeatureSettings: `'zero' 1`,
@@ -42,11 +43,13 @@ const chakraTheme: Theme = extendTheme({
     Heading: {
       baseStyle: {
         color: "heading",
+        fontFamily: "Space Grotesk, sans-serif",
       },
     },
     Text: {
       baseStyle: {
         color: "paragraph",
+        fontFamily: "Space Grotesk, sans-serif",
       },
     },
   },
